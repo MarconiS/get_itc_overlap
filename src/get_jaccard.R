@@ -9,7 +9,8 @@ get_jaccard <- function(pred_itc_pt=NULL, ground_pt=NULL, dataname=NULL, epsg = 
   library(clue)
   library(raster)
   library(lidR)
-  
+  source("./src/functions.R")
+
   #### READ IN ground data
   itcs <- readOGR(dsn=ground_pt, layer = dataname,stringsAsFactors = F)
   
