@@ -29,7 +29,7 @@ get_jaccard <- function(pred_itc_pt=NULL, ground_pt=NULL, dataname=NULL, epsg = 
       print(i)
       pred_itc <- readOGR(dsn=pred_itc_pt, layer = i,stringsAsFactors = F, verbose = F)
       proj4string(pred_itc) <-  CRS(paste("+init=epsg:", epsg, sep=""))
-      itcs <-spTransform(itcs, CRS("+init=epsg:32616"))
+      itcs <-spTransform(itcs, CRS(paste("+init=epsg:", epsg, sep="")))
       if(!is.null(crop(pred_itc, extent(itcs)))){
         print("gotcha!")
         jac.dalponte[[i]] <- overJac(itcs, pred_itc)
